@@ -8,7 +8,7 @@ parameters {
 }
 
 model {
-    mu ~ normal(12,2.5);
+    mu ~ normal(12.5,2.5);
     sigma ~ normal(0,0.6);
     alcohol_val[N] ~ normal(mu,sigma); 
     for(i in 1:N)

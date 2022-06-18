@@ -5,7 +5,7 @@ data {
 }
 parameters{
     real alpha;
-    real<upper=0> beta;
+    real<lower=0> beta;
     real<upper=0> beta2;
     real<lower=0> sigma;
 }
@@ -18,9 +18,9 @@ transformed parameters {
 }
 
 model{
-    alpha ~ normal(12,2.5);
-    beta ~ normal(0,0.01);
-    beta2 ~ normal(0,1.1);
+    alpha ~ normal(12.5,2.5);
+    beta ~ normal(0,1.1);
+    beta2 ~ normal(0,1.3);
     sigma ~ normal(0,0.6);
     for (i in 1:N){
     alcohol_val[i] ~ normal(mu[i],sigma); 
